@@ -22,5 +22,8 @@ router.put("/:id", receipe_controller.update);
 // (Étape 2) Ajout de la route qui permet de supprimer un seul étudiant grâce à son identifant
 router.delete("/:id", receipe_controller.delete);
 
+// Route qui permet de récupérer les recettes en fonction d'une catégorie
+router.get("/receipe/:id", receipe_controller.getReceipeFromCategory);
+
 // (Étape 1) Export du router
 module.exports = router;

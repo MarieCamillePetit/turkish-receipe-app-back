@@ -11,6 +11,8 @@ const receipeSchema = new mongoose.Schema({
   descriptionReceipe: { type: String, required: true },
   time: { type: String, required: true },
   level: { type: String, required: true },
+  receipeImg: { type: String, required: true },
+  receipeYtb: { type: String, required: true },
   category: {
     type: Number,
     required: true,

@@ -33,6 +33,19 @@ const receipeValidationRules = () => {
       .isLength({ min: 1 })
       .escape()
       .withMessage("Level must be specified."),
+
+    body("receipeYtb")
+      .trim()
+      .isLength({ min: 1 })
+      .escape()
+      .withMessage("receipeYtb must be specified."),
+
+    body("receipeImg")
+      .trim()
+      .isLength({ min: 1 })
+      .escape()
+      .withMessage("receipeImg must be specified."),
+
     body("category")
       .trim()
       .isLength({ min: 1 })
@@ -92,6 +105,8 @@ exports.create = [
       descriptionReceipe: req.body.descriptionReceipe,
       time: req.body.time,
       level: req.body.level,
+      receipeYtb: req.body.receipeYtb,
+      receipeImg: req.body.receipeImg,
       category: req.body.category,
     });
 
@@ -141,6 +156,8 @@ exports.update = [
       descriptionReceipe: req.body.descriptionReceipe,
       time: req.body.time,
       level: req.body.level,
+      receipeYtb: req.body.receipeYtb,
+      receipeImg: req.body.receipeImg,
       category: req.body.category,
     });
 
@@ -173,6 +190,20 @@ exports.delete = [
           .json("Receipe with id " + req.params.id + " is not found !");
       }
       return res.status(200).json("Receipe deleted successfully !");
+    });
+  },
+];
+
+// Get all recipes from a category
+exports.getReceipeFromCategory = [
+  paramIdValidationRule(),
+  checkValidity,
+  (req, res, next) => {
+    Receipe.find({ category: req.params.id }, function (err, result) {
+      if (err) {
+        return res.status(500).json(err);
+      }
+      return res.status(200).json(result);
     });
   },
 ];
