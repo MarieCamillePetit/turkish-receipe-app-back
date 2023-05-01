@@ -37,13 +37,11 @@ const receipeValidationRules = () => {
     body("receipeYtb")
       .trim()
       .isLength({ min: 1 })
-      .escape()
       .withMessage("receipeYtb must be specified."),
 
     body("receipeImg")
       .trim()
       .isLength({ min: 1 })
-      .escape()
       .withMessage("receipeImg must be specified."),
 
     body("category")
