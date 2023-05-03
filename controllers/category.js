@@ -12,8 +12,7 @@ const categoryValidationRules = () => {
       .isLength({ min: 1 })
       .escape()
       .withMessage("Category name must be specified.")
-      .isAlphanumeric()
-      .withMessage("Category name has non-alphanumeric characters."),
+
   ];
 };
 

@@ -11,18 +11,14 @@ const receipeValidationRules = () => {
       .trim()
       .isLength({ min: 1 })
       .escape()
-      .withMessage("Receipe name must be specified.")
-      .isAlphanumeric()
-      .withMessage("Receipe name has non-alphanumeric characters."),
+      .withMessage("Receipe name must be specified."),
 
     body("descriptionReceipe")
       .trim()
       .isLength({ min: 1 })
       .escape()
-      .withMessage("Receipe description must be specified.")
-      .isAlphanumeric()
-      .withMessage("Receipe description has non-alphanumeric characters."),
-
+      .withMessage("Receipe description must be specified."),
+    
     body("time")
       .trim()
       .isLength({ min: 1 })
